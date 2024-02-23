@@ -43,7 +43,7 @@ jobs:
         with: 
           context: . 
           push: true 
-          tags:haoxuanyu/234-deploylab-backend: latest 
+          tags: haoxuanyu/234-deploylab-backend: latest 
      -
         name: copy file via ssh password 
         uses: appleboy/scp-action@v0.1.4 
@@ -65,8 +65,8 @@ jobs:
           script: |
             cd /home/ubuntu/backend 
             echo ${{secrets.DOCKER_HUB_TOKEN}} | docker login --username ${{secrets.DOCKER_HUB_USERNAME}}  --password-stdin 
-            docker compose down 
-            docker compose pull 
-            docker compose up -d 
+            docker-compose down 
+            docker-compose pull 
+            docker-compose up -d 
             rm -rf /home/ubuntu/backend
       
